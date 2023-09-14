@@ -19,6 +19,11 @@ public class HistoryBattle {
     private String winner;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "timelines",
+            joinColumns = {@JoinColumn(name = "history_battle_id", referencedColumnName = "battleId")},
+            inverseJoinColumns = {@JoinColumn(name = "history_turn_id", referencedColumnName = "id")}
+    )
     private List<HistoryTurn> timeLine = new ArrayList<>();
 
     public UUID getBattleId() {
