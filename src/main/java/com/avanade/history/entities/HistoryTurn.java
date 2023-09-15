@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "history_turns")
+@Table(name = "history_turns", schema = "log")
 public class HistoryTurn {
 
     @Id
